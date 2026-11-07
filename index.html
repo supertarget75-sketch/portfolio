@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Елена Антоненко · ИИ-визуал и видео</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1ea;--ink:#1f1a17;--muted:#6f655d;--card:#fffaf4;--line:#e4d9cc;--acc:#b5476b;--acc2:#c98a3d}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.05}
+h2{font-size:clamp(34px,5vw,52px);margin-bottom:14px}
+.lead{color:var(--muted);max-width:620px}
+section{padding:88px 0}
+nav{position:sticky;top:0;z-index:5;background:rgba(246,241,234,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+nav b{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600}
+nav .links a{margin-left:26px;text-decoration:none;font-size:15px;color:var(--muted)}
+nav .links a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;padding:15px 28px;border-radius:999px;font-weight:500;font-size:16px;border:0;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.hero{padding:64px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:var(--acc);font-weight:700;margin-bottom:18px}
+.hero h1{font-size:clamp(46px,7vw,88px);margin-bottom:22px}
+.hero h1 em{color:var(--acc);font-style:italic}
+.hero p{color:var(--muted);font-size:19px;max-width:540px;margin-bottom:32px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.phone{position:relative;border-radius:34px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 30px 60px -25px rgba(60,30,20,.45);background:#000;max-width:380px;justify-self:center;width:100%}
+.snd{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);background:rgba(255,255,255,.94);border:0;border-radius:999px;padding:10px 18px;font:700 14px Manrope,sans-serif;cursor:pointer;white-space:nowrap}
+.phone video{width:100%;height:100%;object-fit:cover;display:block}
+.facts{display:flex;gap:36px;margin-top:44px;flex-wrap:wrap}
+.facts div{font-size:14px;color:var(--muted)}
+.facts strong{display:block;font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--ink);font-weight:600;line-height:1}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px 24px}
+.svc .n{font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--acc2)}
+.svc h3{font-size:27px;margin:10px 0 12px}
+.svc p{font-size:15px;color:var(--muted)}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:36px 0 28px}
+.tabs button{font:500 15px Manrope,sans-serif;padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{columns:3 300px;column-gap:18px}
+.item{break-inside:avoid;margin-bottom:18px;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .25s}
+.item:hover{transform:translateY(-3px)}
+.item .m{position:relative}
+.item img{width:100%;display:block}
+.item .play{position:absolute;inset:auto auto 14px 14px;background:rgba(255,255,255,.92);border-radius:999px;padding:7px 14px 7px 12px;font-size:13px;font-weight:700}
+.item .cap{padding:14px 18px 16px}
+.item .cap b{display:block;font-size:15px}
+.item .cap span{font-size:13px;color:var(--muted)}
+.item.hide{display:none}
+.why{background:var(--ink);color:#f6f1ea}
+.why .lead{color:#c9bdb0}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:44px}
+.why-grid h3{font-size:28px;margin-bottom:10px;color:#fff}
+.why-grid p{color:#c9bdb0;font-size:15px}
+.tools{margin-top:48px;display:flex;flex-wrap:wrap;gap:10px}
+.tools span{border:1px solid #4a403a;border-radius:999px;padding:7px 16px;font-size:14px;color:#e6dbcf}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:18px}
+.step:before{counter-increment:s;content:"0" counter(s);font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--acc)}
+.step h3{font-size:24px;margin:6px 0 8px}
+.step p{font-size:15px;color:var(--muted)}
+.contact{text-align:center}
+.contact .lead{margin:0 auto 32px}
+.contact .cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.contact small{display:block;margin-top:18px;color:var(--muted)}
+footer{padding:28px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.lb{position:fixed;inset:0;background:rgba(20,15,12,.92);display:none;align-items:center;justify-content:center;z-index:20;padding:24px}
+.lb.on{display:flex}
+.lb video,.lb img{max-height:88vh;max-width:92vw;border-radius:16px}
+.lb button{position:absolute;top:18px;right:22px;background:none;border:0;color:#fff;font-size:38px;cursor:pointer}
+@media(max-width:900px){
+ .hero .wrap{grid-template-columns:1fr}
+ .phone{max-width:300px}
+ .services,.steps{grid-template-columns:1fr 1fr}
+ .why-grid{grid-template-columns:1fr}
+ nav .links{display:none}
+ section{padding:64px 0}
+}
+@media(max-width:560px){.services,.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Елена Антоненко</b><div class="links"><a href="#uslugi">Услуги</a><a href="#raboty">Работы</a><a href="#pochemu">Почему я</a><a href="#kontakty">Контакты</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+ <div>
+  <div class="kicker">Нейросети · видео · визуал</div>
+  <h1>Визуал, который <em>продаёт</em> без фотостудии</h1>
+  <p>Создаю цифровых аватаров. Надеваю на моделей ваши украшения, одежду, обувь и аксессуары и оживляю их в видео, при этом сама вещь остаётся без изменений. Делаю карточки товаров, монтирую Reels и рисую обложки. 15 лет в ювелирном бизнесе и 4 года в нейросетях: знаю, как показать товар, чтобы его захотели купить.</p>
+  <div class="cta"><a class="btn" href="#kontakty">Обсудить задачу</a><a class="btn ghost" href="#raboty">Смотреть работы</a></div>
+  <div class="facts">
+   <div><strong>15 лет</strong>ювелирный бизнес</div>
+   <div><strong>4 года</strong>работаю с нейросетями</div>
+   <div><strong>9:16 · 4:5</strong>готово для соцсетей</div>
+  </div>
+ </div>
+ <div class="phone"><video id="hv" src="media/v6.mp4" poster="media/v6.jpg" autoplay muted loop playsinline></video><button class="snd" id="snd">🔊 Смотреть со звуком</button></div>
+</div></header>
+
+<section id="uslugi"><div class="wrap">
+ <h2>Что я делаю</h2>
+ <p class="lead">Беру на себя визуал целиком: от идеи и промпта до готового ролика, который можно сразу выкладывать.</p>
+ <div class="services">
+  <div class="svc"><div class="n">01</div><h3>Цифровой аватар</h3><p>Ваш двойник, который говорит на камеру вашим текстом. Экспертные ролики без съёмок, света и стилиста.</p></div>
+  <div class="svc"><div class="n">02</div><h3>Ваш товар на модели</h3><p>Украшения, одежда, обувь, шапки, сумки: по отдельности или целым образом. Надеваю на модель и оживляю в видео. Форма, цвет, фактура и размер остаются как в жизни.</p></div>
+  <div class="svc"><div class="n">03</div><h3>Карточки товаров</h3><p>Продающие карточки для маркетплейсов и соцсетей: фото на модели, инфографика, состав и преимущества товара.</p></div>
+  <div class="svc"><div class="n">04</div><h3>Монтаж Reels</h3><p>Вертикальные ролики с субтитрами, ритмом и призывом к действию. Для Reels, Shorts, TikTok и VK Клипов.</p></div>
+  <div class="svc"><div class="n">05</div><h3>Обложки и карусели</h3><p>Яркие обложки, карусели для экспертов и лукбуки. Узнаваемый стиль, который выделяет в ленте.</p></div>
+  <div class="svc" style="background:var(--ink);color:#f6f1ea;border-color:var(--ink)"><div class="n">06</div><h3>Ваша задача</h3><p style="color:#c9bdb0">Не нашли нужное в списке? Напишите, что хотите получить, и я предложу, как это сделать.</p><p style="margin-top:16px"><a href="#kontakty" style="color:#fff">Написать →</a></p></div>
+ </div>
+</div></section>
+
+<section id="raboty" style="padding-top:0"><div class="wrap">
+ <h2>Работы</h2>
+ <p class="lead">Нажмите на работу, чтобы посмотреть крупно. Видео открываются со звуком.</p>
+ <div class="tabs">
+  <button class="on" data-f="all">Все</button>
+  <button data-f="avatar">Аватары</button>
+  <button data-f="jewel">Товар на модели</button>
+  <button data-f="design">Обложки и дизайн</button>
+ </div>
+ <div class="grid">
+  <div class="item" data-c="avatar" data-v="media/v6.mp4"><div class="m"><img src="media/v6.jpg" alt="Видео-презентация: 6 образов аватара"><span class="play">▶ видео 30 с</span></div><div class="cap"><b>Презентация: 6 образов</b><span>Один аватар, шесть нарядов и обстановок, монтаж</span></div></div>
+  <div class="item" data-c="jewel" data-v="media/v1.mp4"><div class="m"><img src="media/v1.jpg" alt="Кольцо-цветок на руке модели"><span class="play">▶ видео</span></div><div class="cap"><b>Кольцо-цветок</b><span>Оживление предметного кадра</span></div></div>
+  <div class="item" data-c="avatar" data-v="media/v4.mp4"><div class="m"><img src="media/v4.jpg" alt="Цифровой аватар эксперта"><span class="play">▶ видео 58 с</span></div><div class="cap"><b>Аватар эксперта по земле</b><span>Говорящий аватар, субтитры, монтаж</span></div></div>
+  <div class="item" data-c="design" data-p="media/p7.jpg"><div class="m"><img src="media/p7.jpg" alt="Обложка Главное правило покупки земли"></div><div class="cap"><b>Обложка для эксперта</b><span>Гранж и поп-арт с аватаром</span></div></div>
+  <div class="item" data-c="jewel" data-v="media/v2.mp4"><div class="m"><img src="media/v2.jpg" alt="Модель в украшениях у бассейна"><span class="play">▶ видео</span></div><div class="cap"><b>Комплект у бассейна</b><span>Серьги, кулон и браслет на модели</span></div></div>
+  <div class="item" data-c="jewel" data-p="media/p2.jpg"><div class="m"><img src="media/p2.jpg" alt="Модель в серебряных украшениях"></div><div class="cap"><b>Фестский диск</b><span>Серебро на модели, обложка</span></div></div>
+  <div class="item" data-c="design" data-p="media/p9.jpg"><div class="m"><img src="media/p9.jpg" alt="Лукбук Тёплый октябрь"></div><div class="cap"><b>Лукбук «Тёплый октябрь»</b><span>Образ и подбор украшений</span></div></div>
+  <div class="item" data-c="avatar" data-v="media/v5.mp4"><div class="m"><img src="media/v5.jpg" alt="Аватар в студии"><span class="play">▶ видео 29 с</span></div><div class="cap"><b>Reels с лид-магнитом</b><span>Аватар, субтитры, призыв написать слово</span></div></div>
+  <div class="item" data-c="jewel" data-v="media/v3.mp4"><div class="m"><img src="media/v3.jpg" alt="Модель в фиолетовом костюме с украшениями"><span class="play">▶ видео</span></div><div class="cap"><b>Аметист в fashion-образе</b><span>Колье и браслет, живое видео</span></div></div>
+  <div class="item" data-c="avatar" data-p="media/p6.jpg"><div class="m"><img src="media/p6.jpg" alt="Портрет аватара с украшениями"></div><div class="cap"><b>Портрет аватара</b><span>Кольцо и браслет на цифровом двойнике</span></div></div>
+  <div class="item" data-c="design" data-p="media/p1.jpg"><div class="m"><img src="media/p1.jpg" alt="Обложка Топливный кризис"></div><div class="cap"><b>Обложка «Топливный кризис»</b><span>Новостной ролик с аватаром</span></div></div>
+  <div class="item" data-c="jewel" data-p="media/p5.jpg"><div class="m"><img src="media/p5.jpg" alt="Кольцо на руке в перчатке"></div><div class="cap"><b>Кольцо в образе</b><span>Предметная съёмка без студии</span></div></div>
+  <div class="item" data-c="design" data-p="media/p8.jpg"><div class="m"><img src="media/p8.jpg" alt="Слайд карусели"></div><div class="cap"><b>Карусель-инструкция</b><span>Слайд 2 из 7, формат 4:5</span></div></div>
+  <div class="item" data-c="design" data-p="media/p3.jpg"><div class="m"><img src="media/p3.jpg" alt="Карточка товара выпечка"></div><div class="cap"><b>Карточка товара</b><span>Домашняя выпечка, упаковка и состав</span></div></div>
+  <div class="item" data-c="design" data-p="media/p4.jpg"><div class="m"><img src="media/p4.jpg" alt="Иллюстрация в стиле наив"></div><div class="cap"><b>Авторская иллюстрация</b><span>Яркий декоративный стиль</span></div></div>
+ </div>
+</div></section>
+
+<section class="why" id="pochemu"><div class="wrap">
+ <h2>Почему со мной спокойно</h2>
+ <p class="lead">Я не просто нажимаю кнопку в нейросети. Я понимаю, что и кому вы продаёте.</p>
+ <div class="why-grid">
+  <div><h3>Знаю ювелирку изнутри</h3><p>15 лет продаю украшения сама. Слежу, чтобы вещь на модели была точной: та же форма, цвет, фактура и размер, без «фантазий» нейросети.</p></div>
+  <div><h3>Думаю как продавец</h3><p>Больше 10 лет в продажах и работе с людьми. Делаю визуал под задачу: привлечь внимание, объяснить, привести к заявке.</p></div>
+  <div><h3>Объясняю и держу сроки</h3><p>10 лет была учителем и завучем. Спокойно согласую детали, показываю промежуточный результат и вношу правки.</p></div>
+ </div>
+ <div class="tools"><span>Kling</span><span>Veo 3</span><span>Seedance</span><span>HeyGen</span><span>Magnific AI</span><span>ChatGPT</span><span>InShot</span></div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Как мы работаем</h2>
+ <div class="steps">
+  <div class="step"><h3>Задача</h3><p>Вы присылаете фото товара или текст и рассказываете, для чего нужен визуал.</p></div>
+  <div class="step"><h3>Идея</h3><p>Предлагаю образ, модель, фон и формат. Согласуем до начала работы.</p></div>
+  <div class="step"><h3>Черновик</h3><p>Показываю первый вариант. Вносим правки, пока вам не понравится.</p></div>
+  <div class="step"><h3>Готово</h3><p>Отдаю файлы в нужном формате, без водяных знаков, готовые к публикации.</p></div>
+ </div>
+</div></section>
+
+<section class="contact" id="kontakty"><div class="wrap">
+ <h2>Давайте сделаем ваш визуал</h2>
+ <p class="lead">Напишите, что нужно: аватар, товар на модели, карточки, ролик или обложки. Отвечу и предложу идею бесплатно.</p>
+ <div class="cta"><a class="btn" href="https://max.ru/u/f9LHodD0cOKuttX57V0Ly-qKiiVyavMrgjPEHL_2E6G4Kt7ExMCuHTTOanI">Написать в MAX</a></div>
+ <small>Ответ обычно в течение дня</small>
+</div></section>
+
+<footer><div class="wrap">© 2026 Елена Антоненко · ИИ-визуал и видео для бизнеса и экспертов</div></footer>
+
+<div class="lb" id="lb"><button aria-label="Закрыть">×</button><div id="lbc"></div></div>
+<script>
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+ document.querySelectorAll('.item').forEach(i=>i.classList.toggle('hide',b.dataset.f!=='all'&&i.dataset.c!==b.dataset.f));
+});
+const lb=document.getElementById('lb'),lbc=document.getElementById('lbc');
+document.querySelectorAll('.item').forEach(i=>i.onclick=()=>{
+ lbc.innerHTML=i.dataset.v?`<video src="${i.dataset.v}" controls autoplay playsinline></video>`:`<img src="${i.dataset.p}" alt="">`;
+ lb.classList.add('on');
+});
+document.getElementById('snd').onclick=()=>{lbc.innerHTML='<video src="media/v6.mp4" controls autoplay playsinline></video>';lb.classList.add('on')};
+function close(){lb.classList.remove('on');lbc.innerHTML=''}
+lb.onclick=e=>{if(e.target===lb||e.target.tagName==='BUTTON')close()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+</script>
+</body>
+</html>
